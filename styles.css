@@ -11,7 +11,7 @@ p {
 }
 table {
   table-layout: fixed;
-  width: 98%;
+  width: 100%;
   border: 1px solid #292929;
   border-collapse: collapse;
 }
@@ -29,6 +29,4 @@ td.heading {
 }
 img {
   display: block;
-  margin-left: auto;
-  margin-right: auto;
 }
