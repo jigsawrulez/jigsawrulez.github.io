@@ -1,2 +1,2 @@
-# jigsawrulez.com
+# JigsawRulez
 This project is a WIP.
