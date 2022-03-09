@@ -15,10 +15,7 @@ table {
   border: 1px solid #292929;
   border-collapse: collapse;
 }
-a {
-  color: white;
-}
-a:visited {
+a:link, a:visited {
   color: white;
 }
 table, th, td {
