@@ -21,6 +21,9 @@ a:link, a:visited {
 table, th, td {
   color: white;
 }
+th, td{
+  padding: 4px;
+}
 td.heading {
   font-weight: bold;
 }
