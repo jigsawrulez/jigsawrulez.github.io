@@ -35,6 +35,8 @@
             margin: 10px;
             display: inline-block;
             vertical-align: top;
+            word-wrap: break-word; /* For non-IE browsers */
+            overflow-wrap: break-word; /* For IE and modern browsers */
         }
 
         .product img,
@@ -60,7 +62,14 @@
         .cta-button:hover {
             background-color: #555;
         }
+       
+        .cta-button.disabled {
+            pointer-events: none;
+            background-color:red;
+            color:white;
 
+        }
+            
         footer {
             background-color: #333;
             color: #fff;
@@ -80,38 +89,75 @@
                 justify-content: center;
             }
         }
+    #newsletter {
+        text-align: center;
+        padding: 30px;
+        background-color: #f9f9f9;
+    }
+
+    #newsletter h2 {
+        margin-bottom: 10px;
+    }
+
+    #newsletter p {
+        margin-bottom: 20px;
+    }
+
+    #newsletter form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #newsletter input[type="email"] {
+        padding: 10px;
+        width: 250px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-right: 5px;
+    }
+
+    #newsletter input[type="submit"] {
+        padding: 10px 20px;
+        background-color: #333;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
     </style>
 </head>
 <body>
     <header>
-        <h1>For all your playground and trapping needs!</h1>
+        <h1>Play & Prey Emporium</h1>
+        <h2>For all your playground and trapping needs!</h2>
     </header>
 
-    <section id="playground">
+    <section id="products">
         <h2>Playground Products</h2>
         <div class="product-container">
-            <div class="playground">
+            <div class="product">
                 <img src="path/to/product-image-1.jpg" alt="Billy Seesaw">
                 <h3>Billy Seesaw</h3>
                 <p>Beloved by kids and adults, the Billy Seesaw will get you through all of life's ups and downs!</p>
-                <a href="#" class="cta-button">SOLD OUT</a>
+                <a href="#" class="cta-button.disabled">SOLD OUT</a>
             </div>
-            <div class="playground">
+            <div class="product">
                 <img src="path/to/product-image-2.jpg" alt="Carosuel">
                 <h3>Puppy Pile Carosuel</h3>
                 <p>Grab 5 of your friends and strap in for a fun and safe spin!</p>
-                <a href="#" class="cta-button">SOLD OUT</a>
+                <a href="#" class="cta-button.disabled">SOLD OUT</a>
             </div>
-            <div class="playground">
+            <div class="product">
                 <img src="path/to/product-image-3.jpg" alt="Monkey Bars">
                 <h3>Alexander's Monkey Bars</h3>
                 <p>Your kids will have so much fun swinging from rung to rung, or just seeing how long they can hang!</p>
-                <a href="#" class="cta-button">SOLD OUT</a>
+                <a href="#" class="cta-button.disabled">SOLD OUT</a>
             </div>
         </div>
     </section>
 
-    <section id="traps">
+    <section id="services">
         <h2>"Animal" Traps</h2>
         <div class="product-container">
             <div class="service">
@@ -131,7 +177,14 @@
     </section>
 
     <footer>
-        <!-- Add footer content or links here -->
+        <section id="newsletter">
+    <h2>Subscribe to our Newsletter!</h2>
+    <p>Be the first to know when products are back in stock!</p>
+    <form action="https://seu2.cleverreach.com/f/361510-364536/?_gl=1*1mnbr2d*_ga*MjE0MzU0NDkzNS4xNjkxMTUwMTY1*_ga_Q09SDP4HXY*MTY5MTE1MDE2NC4xLjEuMTY5MTE1MDMxMS41Mi4wLjA.&_ga=2.169838497.1028181209.1691150165-2143544935.1691150165" method="post">
+        <input type="email" name="email" placeholder="Enter your email address" required>
+        <input type="submit" value="Subscribe">
+    </form>
+</section>
     </footer>
 </body>
 </html>
