@@ -235,38 +235,42 @@
     </form>
 </section>
     </footer>
- <script>
-        const tooltips = document.querySelectorAll('.tooltip');
+<script>
+    const tooltips = document.querySelectorAll('.tooltip');
 
-        tooltips.forEach(tooltip => {
-            const tooltipText = tooltip.getAttribute('data-tooltip');
-            tooltip.insertAdjacentHTML('beforeend', `<span class="tooltiptext">${tooltipText}</span>`);
+    tooltips.forEach(tooltip => {
+        const tooltipText = tooltip.getAttribute('data-tooltip');
+        tooltip.insertAdjacentHTML('beforeend', `<span class="tooltiptext">${tooltipText}</span>`);
 
-            let timeout;
+        let timeout;
+        let tooltipVisible = false;
 
-            tooltip.addEventListener('mouseenter', () => {
+        tooltip.addEventListener('mouseenter', () => {
+            if (!tooltipVisible) {
                 timeout = setTimeout(() => {
                     const tooltipElement = tooltip.querySelector('.tooltiptext');
                     tooltipElement.style.visibility = 'visible';
                     tooltipElement.style.opacity = '1';
 
-                    // Get cursor coordinates
                     const cursorX = event.clientX;
                     const cursorY = event.clientY;
 
-                    // Position the tooltip next to the cursor
-                    tooltipElement.style.left = `${cursorX + 10}px`; // 10px offset
-                    tooltipElement.style.top = `${cursorY + 10}px`; // 10px offset
-                }, 1000); // 1000 milliseconds (1 second) delay
-            });
+                    tooltipElement.style.left = `${cursorX + 10}px`;
+                    tooltipElement.style.top = `${cursorY + 10}px`;
 
-            tooltip.addEventListener('mouseleave', () => {
-                clearTimeout(timeout);
-                const tooltipElement = tooltip.querySelector('.tooltiptext');
-                tooltipElement.style.visibility = 'hidden';
-                tooltipElement.style.opacity = '0';
-            });
+                    tooltipVisible = true;
+                }, 1000); // 1000 milliseconds (1 second) delay
+            }
         });
-    </script>
+
+        tooltip.addEventListener('mouseleave', () => {
+            clearTimeout(timeout);
+            const tooltipElement = tooltip.querySelector('.tooltiptext');
+            tooltipElement.style.visibility = 'hidden';
+            tooltipElement.style.opacity = '0';
+            tooltipVisible = false;
+        });
+    });
+</script>
 </body>
 </html>
