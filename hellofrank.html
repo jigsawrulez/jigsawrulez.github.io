@@ -11,8 +11,11 @@
         font-family: Arial, sans-serif;
     }
 
-    .container {
-        text-align: center;
+   .logo-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0px auto;
     }
 
     .logo img {
@@ -164,10 +167,9 @@
     </style>
 </head>
 <body>
-      <div class="container">
-        <div class="logo">
-            <img src="Play and Prey Logo.png" alt="Logo">
-        </div>
+     <div class="logo-container">
+    <img src="Play and Prey Logo.png" alt="Logo">
+</div>
 
     <section id="products">
         <h2>Playground Products</h2>
@@ -246,6 +248,8 @@
         let tooltipVisible = false;
 
         tooltip.addEventListener('mouseenter', () => {
+            clearTimeout(timeout);
+
             timeout = setTimeout(() => {
                 const tooltipElement = tooltip.querySelector('.tooltiptext');
                 tooltipElement.style.visibility = 'visible';
@@ -265,13 +269,17 @@
             }
         });
 
-        // Hide tooltip when cursor leaves the tooltip container
-        tooltip.addEventListener('mouseleave', () => {
+        tooltip.querySelector('.tooltiptext').addEventListener('mouseenter', () => {
             clearTimeout(timeout);
-            const tooltipElement = tooltip.querySelector('.tooltiptext');
-            tooltipElement.style.visibility = 'hidden';
-            tooltipElement.style.opacity = '0';
-            tooltipVisible = false;
+        });
+
+        tooltip.querySelector('.tooltiptext').addEventListener('mouseleave', () => {
+            if (tooltipVisible) {
+                const tooltipElement = tooltip.querySelector('.tooltiptext');
+                tooltipElement.style.visibility = 'hidden';
+                tooltipElement.style.opacity = '0';
+                tooltipVisible = false;
+            }
         });
     });
 </script>
