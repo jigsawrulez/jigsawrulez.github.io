@@ -1,39 +1,30 @@
 <!DOCTYPE html>
 <html>
-     <!--Can you find them?-->
 <head>
-    <link rel="icon" type="image/png" href="Spiral Favicon.png">
+     <link rel="icon" type="image/png" href="Spiral Favicon.png">
     <title>Play & Prey Emporium</title>
     <style>
+         <style>
+    body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+    }
+
+    .container {
+        text-align: center;
+    }
+
+    .logo img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+    }
+
         body {
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
-            display: flex;
-             flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-
-        header {
-            text-align: center;
-            padding: 20px;
-            background-color: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .container {
-            text-align: center;
-        }
-
-        .logo img {
-            max-width: 75%;
-            height: auto;
-            display: block;
-            margin: 20px auto;
         }
 
         .product,
@@ -104,57 +95,54 @@
             }
         }
     #newsletter {
-            text-align: center;
-            padding: 30px;
-            background-color: grey;
-        }
+        text-align: center;
+        padding: 30px;
+        background-color: grey;
+    }
 
-        #newsletter h2 {
-            margin-bottom: 10px;
-        }
+    #newsletter h2 {
+        margin-bottom: 10px;
+    }
 
-        #newsletter p {
-            margin-bottom: 20px;
-        }
+    #newsletter p {
+        margin-bottom: 20px;
+    }
 
-        #newsletter form {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+    #newsletter form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
-        #newsletter input[type="email"] {
-            padding: 10px;
-            width: 250px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            margin-right: 5px;
-        }
+    #newsletter input[type="email"] {
+        padding: 10px;
+        width: 250px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-right: 5px;
+    }
 
-        #newsletter input[type="submit"] {
-            padding: 10px 20px;
-            background-color: #333;
-            color: black;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+    #newsletter input[type="submit"] {
+        padding: 10px 20px;
+        background-color: #333;
+        color:black;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
     </style>
 </head>
 <body>
-       <header>
-        <div class="container">
-            <div class="logo">
-                <img src="Play and Prey Logo.png" alt="Logo">
-            </div>
+      <div class="container">
+        <div class="logo">
+            <img src="Play and Prey Logo.png" alt="Logo">
         </div>
-    </header>
 
     <section id="products">
         <h2>Playground Products</h2>
         <div class="product-container">
             <div class="product">
-                <img src="see saw.jpg" alt="bitly">
+                <img src="see saw.jpg" alt="Bitly">
                 <h3>Billy Seesaw</h3>
                 <p>Beloved by kids and adults, the Billy Seesaw will get you through all of life's ups and downs!</p>
                 <a href="#" class="cta-button">SOLD OUT</a>
