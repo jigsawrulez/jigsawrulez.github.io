@@ -130,6 +130,36 @@
         border-radius: 5px;
         cursor: pointer;
     }
+
+    /* Tooltip container */
+    .tooltip {
+        position: relative;
+        display: inline-block;
+    }
+
+    /* Tooltip text */
+    .tooltip .tooltiptext {
+        visibility: hidden;
+        width: max-content;
+        background-color: rgba(0, 0, 0, 0.8);
+        color: #fff;
+        text-align: center;
+        border-radius: 5px;
+        padding: 5px;
+        position: absolute;
+        z-index: 1;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    /* Show the tooltip on hover */
+    .tooltip:hover .tooltiptext {
+        visibility: visible;
+        opacity: 1;
+    }
     </style>
 </head>
 <body>
@@ -143,24 +173,28 @@
         <div class="product-container">
             <div class="product">
                 <img src="see saw.jpg" alt="Bitly">
+                  <span class="tooltiptext">Bitly</span>
                 <h3>Billy Seesaw</h3>
                 <p>Beloved by kids and adults, the Billy Seesaw will get you through all of life's ups and downs!</p>
                 <a href="#" class="cta-button">SOLD OUT</a>
             </div>
             <div class="product">
                 <img src="carosuel.jpg" alt="3QE">
+                  <span class="tooltiptext">3QE</span>
                 <h3>Puppy Pile Carosuel</h3>
                 <p>Grab 5 of your friends and strap in for a fun and safe spin! (Supervision suggested)</p>
                 <a href="#" class="cta-button">SOLD OUT</a>
             </div>
             <div class="product">
                 <img src="monkey bars.jpg" alt="Tk">
+                  <span class="tooltiptext">Tk</span>
                 <h3>Alex Monkey Bars</h3>
                 <p>Your kids will have so much fun swinging from rung to rung, or just seeing how long they can hang!</p>
                 <a href="#" class="cta-button">SOLD OUT</a>
             </div>
             <div class="product">
                 <img src="swings.png" alt="bK">
+                  <span class="tooltiptext">bK</span>
                 <h3>Johnny's Push Swings</h3>
                 <p>Your kids will love being pushed to their limit on this swing!</p>
                 <a href="#" class="cta-button">SOLD OUT</a>
