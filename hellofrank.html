@@ -235,5 +235,26 @@
     </form>
 </section>
     </footer>
+           <script>
+    const tooltips = document.querySelectorAll('.tooltip');
+
+    tooltips.forEach(tooltip => {
+        const tooltipText = tooltip.getAttribute('data-tooltip');
+        tooltip.insertAdjacentHTML('beforeend', `<span class="tooltiptext">${tooltipText}</span>`);
+
+        tooltip.addEventListener('mouseenter', () => {
+            const tooltipElement = tooltip.querySelector('.tooltiptext');
+            tooltipElement.style.visibility = 'visible';
+            tooltipElement.style.opacity = '1';
+        });
+
+        tooltip.addEventListener('mouseleave', () => {
+            const tooltipElement = tooltip.querySelector('.tooltiptext');
+            tooltipElement.style.visibility = 'hidden';
+            tooltipElement.style.opacity = '0';
+        });
+    });
+</script>
+
 </body>
 </html>
