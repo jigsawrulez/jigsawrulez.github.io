@@ -135,14 +135,14 @@
         cursor: pointer;
     }
 
-    /* Tooltip container */
+   /* Tooltip container */
     .tooltip {
         position: relative;
         display: inline-block;
     }
 
     /* Tooltip text */
-    .tooltip .tooltiptext {
+    .tooltiptext {
         visibility: hidden;
         width: max-content;
         background-color: rgba(0, 0, 0, 0.8);
@@ -156,13 +156,14 @@
         left: 50%;
         transform: translateX(-50%);
         opacity: 0;
-        transition: opacity 0.3s;
+        transition: opacity 0.3s, visibility 0.3s;
     }
 
     /* Show the tooltip on hover */
     .tooltip:hover .tooltiptext {
         visibility: visible;
         opacity: 1;
+        transition-delay: 1s; /* 1-second delay for the tooltip to appear */
     }
     </style>
 </head>
@@ -237,51 +238,5 @@
     </form>
 </section>
     </footer>
-<script>
-    const tooltips = document.querySelectorAll('.tooltip');
-
-    tooltips.forEach(tooltip => {
-        const tooltipText = tooltip.getAttribute('data-tooltip');
-        tooltip.insertAdjacentHTML('beforeend', `<span class="tooltiptext">${tooltipText}</span>`);
-
-        let timeout;
-        let tooltipVisible = false;
-
-        tooltip.addEventListener('mouseenter', () => {
-            clearTimeout(timeout);
-
-            timeout = setTimeout(() => {
-                const tooltipElement = tooltip.querySelector('.tooltiptext');
-                tooltipElement.style.visibility = 'visible';
-                tooltipElement.style.opacity = '1';
-
-                tooltipVisible = true;
-            }, 1000); // 1000 milliseconds (1 second) delay
-        });
-
-        tooltip.addEventListener('mouseleave', () => {
-            clearTimeout(timeout);
-            if (tooltipVisible) {
-                const tooltipElement = tooltip.querySelector('.tooltiptext');
-                tooltipElement.style.visibility = 'hidden';
-                tooltipElement.style.opacity = '0';
-                tooltipVisible = false;
-            }
-        });
-
-        tooltip.querySelector('.tooltiptext').addEventListener('mouseenter', () => {
-            clearTimeout(timeout);
-        });
-
-        tooltip.querySelector('.tooltiptext').addEventListener('mouseleave', () => {
-            if (tooltipVisible) {
-                const tooltipElement = tooltip.querySelector('.tooltiptext');
-                tooltipElement.style.visibility = 'hidden';
-                tooltipElement.style.opacity = '0';
-                tooltipVisible = false;
-            }
-        });
-    });
-</script>
 </body>
 </html>
