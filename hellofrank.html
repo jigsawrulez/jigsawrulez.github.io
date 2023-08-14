@@ -246,29 +246,31 @@
         let tooltipVisible = false;
 
         tooltip.addEventListener('mouseenter', () => {
-            if (!tooltipVisible) {
-                timeout = setTimeout(() => {
-                    const tooltipElement = tooltip.querySelector('.tooltiptext');
-                    tooltipElement.style.visibility = 'visible';
-                    tooltipElement.style.opacity = '1';
+            clearTimeout(timeout);
 
-                    const cursorX = event.clientX;
-                    const cursorY = event.clientY;
+            timeout = setTimeout(() => {
+                const tooltipElement = tooltip.querySelector('.tooltiptext');
+                tooltipElement.style.visibility = 'visible';
+                tooltipElement.style.opacity = '1';
 
-                    tooltipElement.style.left = `${cursorX + 10}px`;
-                    tooltipElement.style.top = `${cursorY + 10}px`;
+                const cursorX = event.clientX;
+                const cursorY = event.clientY;
 
-                    tooltipVisible = true;
-                }, 1000); // 1000 milliseconds (1 second) delay
-            }
+                tooltipElement.style.left = `${cursorX + 10}px`;
+                tooltipElement.style.top = `${cursorY + 10}px`;
+
+                tooltipVisible = true;
+            }, 1000); // 1000 milliseconds (1 second) delay
         });
 
         tooltip.addEventListener('mouseleave', () => {
             clearTimeout(timeout);
-            const tooltipElement = tooltip.querySelector('.tooltiptext');
-            tooltipElement.style.visibility = 'hidden';
-            tooltipElement.style.opacity = '0';
-            tooltipVisible = false;
+            if (tooltipVisible) {
+                const tooltipElement = tooltip.querySelector('.tooltiptext');
+                tooltipElement.style.visibility = 'hidden';
+                tooltipElement.style.opacity = '0';
+                tooltipVisible = false;
+            }
         });
     });
 </script>
