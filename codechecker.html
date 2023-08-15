@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Enter Code</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 100px;
+        }
+        input {
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Enter the Numerical Code</h2>
+    <p>Enter the numerical code provided:</p>
+    <input type="number" id="codeInput" placeholder="Code">
+    <button id="submitButton">Submit</button>
+
+    <script>
+        const expectedCode = 3953; // Replace with your actual numerical code
+
+        document.getElementById("submitButton").addEventListener("click", () => {
+            const enteredCode = parseInt(document.getElementById("codeInput").value);
+
+            if (enteredCode === expectedCode) {
+                window.location.href = "yougotit.html"; // Redirect to the protected page
+            } else {
+                alert("Incorrect code. You'll never find them that way. Please try again.");
+            }
+        });
+    </script>
+</body>
+</html>
