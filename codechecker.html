@@ -8,8 +8,9 @@
             text-align: center;
             margin: 100px;
         }
-        input {
-            padding: 10px;
+        .code-input {
+            width: 30px;
+            text-align: center;
             font-size: 16px;
         }
         button {
@@ -21,17 +22,24 @@
 <body>
     <h2>Enter the Numerical Code</h2>
     <p>Enter the numerical code provided:</p>
-    <input type="number" id="codeInput" placeholder="Code">
+    <input type="text" class="code-input" maxlength="1">
+    <input type="text" class="code-input" maxlength="1">
+    <input type="text" class="code-input" maxlength="1">
+    <input type="text" class="code-input" maxlength="1">
+    <br>
     <button id="submitButton">Submit</button>
 
     <script>
-        const expectedCode = 3953; // Replace with your actual numerical code
+        const expectedCode = "3953";
 
         document.getElementById("submitButton").addEventListener("click", () => {
-            const enteredCode = parseInt(document.getElementById("codeInput").value);
+            const enteredCode =
+                Array.from(document.getElementsByClassName("code-input"))
+                     .map(input => input.value)
+                     .join('');
 
             if (enteredCode === expectedCode) {
-                window.location.href = "yougotit.html"; // Redirect to the protected page
+                window.location.href = "yougotit.html"; 
             } else {
                 alert("Incorrect code. You'll never find them that way. Please try again.");
             }
