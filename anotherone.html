@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <!--Come on now. Still looking for the answer here? -->
+<head>
+    <title>Enter Code</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 100px;
+        }
+        .code-input {
+            width: 30px;
+            text-align: center;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Enter the Numerical Code</h2>
+    <p>Enter the numerical code provided:</p>
+    <input type="text" class="code-input" maxlength="1" autofocus>
+    <input type="text" class="code-input" maxlength="1">
+    <input type="text" class="code-input" maxlength="1">
+    <input type="text" class="code-input" maxlength="1">
+    <br><br>
+    <button id="submitButton">Submit</button>
+
+    <script>
+        const expectedCode = "7426";
+
+        document.getElementById("submitButton").addEventListener("click", () => {
+            const enteredCode =
+                Array.from(document.getElementsByClassName("code-input"))
+                     .map(input => input.value)
+                     .join('');
+
+            if (enteredCode === expectedCode) {
+                window.location.href = "gettingcloser.html"; 
+            } else {
+                alert("Incorrect code. Your movie star good looks won't help you here. Please try again.");
+            }
+        });
+    </script>
+    <script>
+        const inputFields = document.getElementsByClassName("code-input");
+
+        for (let i = 0; i < inputFields.length; i++) {
+            inputFields[i].addEventListener("input", function() {
+                if (this.value.length === 1) {
+                    if (i < inputFields.length - 1) {
+                        inputFields[i + 1].focus();
+                    } else {
+                        // All inputs are filled, submit if you want
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>
