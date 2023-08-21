@@ -26,12 +26,11 @@
     <input type="text" class="code-input" maxlength="1" autofocus>
     <input type="text" class="code-input" maxlength="1">
     <input type="text" class="code-input" maxlength="1">
-    <input type="text" class="code-input" maxlength="1">
     <br><br>
     <button id="submitButton">Submit</button>
 
     <script>
-        const expectedCode = "7426";
+        const expectedCode = "312";
 
         document.getElementById("submitButton").addEventListener("click", () => {
             const enteredCode =
@@ -42,7 +41,7 @@
             if (enteredCode === expectedCode) {
                 window.location.href = "gettingcloser.html"; 
             } else {
-                alert("Incorrect code. Your movie star good looks won't help you here. Please try again.");
+                alert("Incorrect code. You'll never catch me that way. Please try again.");
             }
         });
     </script>
